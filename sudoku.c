@@ -80,7 +80,24 @@ int is_valid(Node* n){
     }
   }
 
-  // for (int i = 0 ; i < 9 ; i)
+   for (int boxRow = 0; boxRow < 3; boxRow++) {
+        for (int boxCol = 0; boxCol < 3; boxCol++) {
+            int verificados[9] = {0};
+            for (int i = 0; i < 3; i++) {
+                for (int j = 0; j < 3; j++) {
+                    int row = boxRow * 3 + i;
+                    int col = boxCol * 3 + j;
+                    int val = n->sudo[row][col];
+                    if (val == 0) continue;
+                    if (verificados[val - 1] == 0)
+                        verificados[val - 1] = 1;
+                    else
+                        return 0;
+                }
+            }
+        }
+    }
+
   return 1;
 }
 
