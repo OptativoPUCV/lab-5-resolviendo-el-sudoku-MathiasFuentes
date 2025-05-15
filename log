@@ -55,3 +55,16 @@ sudoku.c:73:11: error: unused variable 'possibleNode' [-Werror=unused-variable]
            ^~~~~~~~~~~~
 cc1.exe: all warnings being treated as errors
 bf7d48e
+Thu, May 15, 2025 11:27:10 AM: 
+ sudoku.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+Compilation failed
+In file included from test.c:5:0:
+sudoku.c: In function 'get_adj_nodes':
+sudoku.c:76:13: error: redefinition of 'possibleNode'
+       Node* possibleNode = copy(n);
+             ^~~~~~~~~~~~
+sudoku.c:75:13: note: previous definition of 'possibleNode' was here
+       Node* possibleNode = createNode();
+             ^~~~~~~~~~~~
+a4ed20e
