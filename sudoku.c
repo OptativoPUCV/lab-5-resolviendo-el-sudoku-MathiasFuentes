@@ -43,9 +43,45 @@ void print_node(Node* n){
     printf("\n");
 }
 
-int is_valid(Node* n){
+/*
+2.Cree la función int is_valid(Node * n), para validar si un estado/nodo es válido (cumple con las restricciones del problema). Debe validar que:
 
-    return 1;
+No se repitan números en las filas
+No se repitan números en las columnas
+No se repitan números en las submatrices de 3x3
+
+*/
+
+int is_valid(Node* n){
+  
+  for (int i = 0 ; i < 9 ; i++){
+    int verificados[9] = {0};
+    
+    for (int j = 0 ; j < 9 ; j++){
+      int val = n->sudo[i][j];
+      if (val == 0) continue;
+      
+      if (verificados[val - 1] == 0)
+        verificados[val - 1] = 1;
+      else return 0;
+    }
+  }
+
+  for (int i = 0 ; i < 9 ; i++){
+    int verificados[9] = {0};
+    
+    for (int j = 0 ; j < 9 ; j++){
+      int val = n->sudo[j][i];
+      if (val == 0) continue;
+      
+      if (verificados[val - 1] == 0)
+        verificados[val - 1] = 1;
+      else return 0;
+    }
+  }
+
+  // for (int i = 0 ; i < 9 ; i)
+  return 1;
 }
 
 /*
