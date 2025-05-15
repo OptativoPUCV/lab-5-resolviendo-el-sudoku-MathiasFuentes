@@ -72,7 +72,6 @@ List* get_adj_nodes(Node* n)  {
 
     
     for (int i = 0 ; i < 9 ; i++){
-      Node* possibleNode = createNode();
       Node* possibleNode = copy(n);
       possibleNode->sudo[x][y] = i + 1;
       pushBack(adjacentNodes, possibleNode);
