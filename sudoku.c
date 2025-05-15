@@ -194,14 +194,14 @@ Node* DFS(Node* initial, int* cont){
     if (is_final(lectura)) return lectura;
     pop(S);
 
-    List* adj = get_adj_nodes(initial);
+    List* adj = get_adj_nodes(lectura);
     
     if (is_empty(adj)) return NULL;
     while (!is_empty(adj)){
       push(S, first(adj));
       popFront(adj);
     }
-    cont += 1;
+    (*cont)++;
   }
   return NULL;
 }
