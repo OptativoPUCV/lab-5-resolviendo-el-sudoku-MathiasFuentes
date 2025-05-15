@@ -137,3 +137,9 @@ list.h:31:6: note: expected 'Stack * {aka struct List *}' but argument is of typ
       ^~~
 cc1.exe: all warnings being treated as errors
 157b409
+Thu, May 15, 2025  1:20:16 PM: 
+ sudoku.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  7|1
+total_score: 55/70
+b2a5c07
