@@ -54,27 +54,27 @@ List* get_adj_nodes(Node* n)  {
     List* adjacentNodes = createList();
     
     // Posiciones x e y de la primera posición vacía.
-    //int x, y;
-
+    
+    int x, y;
     int Flag = 1;
 
     //Buscar la primera posición vacía para retornar los posibles estados de este.
     for (int i = 0 ; i < 9 && Flag != 0 ; i++){
       for (int j = 0 ; j < 9 && Flag != 0 ; j++){
         if (n->sudo[i][j] == 0){
-          // x = i; y = j;  // Guardar la primera posición vacía del sudoku
+          x = i; y = j;  // Guardar la primera posición vacía del sudoku
           Flag = 0;
         }
       }
     }
-    /*
+    
+    Node* possibleNode = createNode();
     for (int i = 0 ; i < 9 ; i++){
-      Node* possibleNode = createNode();
       possibleNode = copy(n);
       possibleNode->sudo[x][y] = i + 1;
       pushBack(adjacentNodes, possibleNode);
     }
-    */
+    
     return adjacentNodes;
 }
 
