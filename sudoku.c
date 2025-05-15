@@ -148,13 +148,20 @@ List* get_adj_nodes(Node* n)  {
     return adjacentNodes;
 }
 
+/*
+  Función is_final(Node* n) :
+  Esta función comprueba si no quedan espacios vacíos en un tablero de sudoku,
+  lo que indicaría que este está completo.
+*/
 
 int is_final(Node* n){
+  // recorrer toda la matriz
   for (int i = 0 ; i < 9 ; i++){
     for (int j = 0 ; j < 9 ; j++){
       if (n->sudo[i][j] == 0) return 0;
     }
   }
+  // la matriz no tiene espacios vacíos
   return 1;
 }
 
