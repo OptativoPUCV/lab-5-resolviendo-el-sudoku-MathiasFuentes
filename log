@@ -8,3 +8,17 @@ Thu, May 15, 2025 11:18:23 AM:
  1 file changed, 2 insertions(+), 1 deletion(-)
  tests:  0|0
 55b702a
+Thu, May 15, 2025 11:19:21 AM: 
+ sudoku.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+Compilation failed
+In file included from test.c:5:0:
+sudoku.c: In function 'get_adj_nodes':
+sudoku.c:57:12: error: variable 'y' set but not used [-Werror=unused-but-set-variable]
+     int x, y;
+            ^
+sudoku.c:57:9: error: variable 'x' set but not used [-Werror=unused-but-set-variable]
+     int x, y;
+         ^
+cc1.exe: all warnings being treated as errors
+1997341
