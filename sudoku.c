@@ -195,8 +195,8 @@ Node* DFS(Node* initial, int* cont){
     pop(S);
 
     List* adj = get_adj_nodes(lectura);
-    
-    if (is_empty(adj)) return NULL;
+    free(lectura);
+
     while (!is_empty(adj)){
       push(S, first(adj));
       popFront(adj);
