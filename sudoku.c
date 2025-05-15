@@ -44,16 +44,24 @@ void print_node(Node* n){
 }
 
 /*
-2.Cree la función int is_valid(Node * n), para validar si un estado/nodo es válido (cumple con las restricciones del problema). Debe validar que:
-
-No se repitan números en las filas
-No se repitan números en las columnas
-No se repitan números en las submatrices de 3x3
-
+  Función is_valid(Node* n) :
+  Esta función se encarga de revisar que el nodo recibido sea válido según las reglas del sudoku
+  
+  Ningún número del 1 al 9 se repite :
+  - En ninguna fila
+  - En ninguna columna
+  - En ningún subcuadro 3x3
+  
+  La función retorna 0 en caso de que no cumpla, retorna 1 en caso de que cumpla.
 */
 
 int is_valid(Node* n){
   
+  // Para cada condición, se crea un arreglo que verifica la existencia única de un número
+  // Si no ha sido leído, es 0, si ya se leyó, es 1.
+  // Por lo tanto, ningún número que tenga en su posición el 1, debería volver a leerse.
+  
+  // Verificación por filas
   for (int i = 0 ; i < 9 ; i++){
     int verificados[9] = {0};
     
@@ -67,6 +75,7 @@ int is_valid(Node* n){
     }
   }
 
+  // Verificación por columnas
   for (int i = 0 ; i < 9 ; i++){
     int verificados[9] = {0};
     
@@ -79,25 +88,25 @@ int is_valid(Node* n){
       else return 0;
     }
   }
-  /*
-   for (int boxRow = 0; boxRow < 3; boxRow++) {
-        for (int boxCol = 0; boxCol < 3; boxCol++) {
-            int verificados[9] = {0};
-            for (int i = 0; i < 3; i++) {
-                for (int j = 0; j < 3; j++) {
-                    int row = boxRow * 3 + i;
-                    int col = boxCol * 3 + j;
-                    int val = n->sudo[row][col];
-                    if (val == 0) continue;
-                    if (verificados[val - 1] == 0)
-                        verificados[val - 1] = 1;
-                    else
-                        return 0;
-                }
-            }
+  
+  // Verificación por subcuadros 3x3
+  for (int boxRow = 0; boxRow < 3; boxRow++) {
+    for (int boxCol = 0; boxCol < 3; boxCol++) {
+      int verificados[9] = {0};
+        for (int i = 0; i < 3; i++) {
+          for (int j = 0; j < 3; j++) {
+            int row = boxRow * 3 + i;
+            int col = boxCol * 3 + j;
+            int val = n->sudo[row][col];
+            if (val == 0) continue;
+            if (verificados[val - 1] == 0) verificados[val - 1] = 1;
+            else return 0;
+          }
         }
     }
-  */
+  }
+
+  // El sudoku es válido.
   return 1;
 }
 
