@@ -79,7 +79,7 @@ int is_valid(Node* n){
       else return 0;
     }
   }
-
+  /*
    for (int boxRow = 0; boxRow < 3; boxRow++) {
         for (int boxCol = 0; boxCol < 3; boxCol++) {
             int verificados[9] = {0};
@@ -97,7 +97,7 @@ int is_valid(Node* n){
             }
         }
     }
-
+  */
   return 1;
 }
 
