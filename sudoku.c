@@ -48,35 +48,41 @@ int is_valid(Node* n){
     return 1;
 }
 
-// 1.Cree una función que a partir de un nodo genere una lista con los nodos adyacentes:
+/*
+  Función get_adj_nodes(Node* n) :
+  Crea una lista de nodos adyacentes al estado de un nodo, busca la primera posición vacía del
+  tablero, si la encuentra, retorna una lista con todos los nodos de los posibles estados de esa posición vacía.
+  En caso de no encontrar una posición vacía, se retorna la lista vacía.
+*/
 
 List* get_adj_nodes(Node* n)  {
     List* adjacentNodes = createList();
     
     // Posiciones x e y de la primera posición vacía.
-    
     int x, y;
     int Flag = 1;
 
     //Buscar la primera posición vacía para retornar los posibles estados de este.
     for (int i = 0 ; i < 9 && Flag != 0 ; i++){
       for (int j = 0 ; j < 9 && Flag != 0 ; j++){
-        if (n->sudo[i][j] == 0){
+        if (n->sudo[i][j] == 0) {
           x = i; y = j;  // Guardar la primera posición vacía del sudoku
           Flag = 0;
         }
       }
     }
     
+    // Si no tiene posición vacía se retorna la lista vacía.
     if (Flag) return adjacentNodes;
-
     
+    // Se guardan todos los estados posibles.
     for (int i = 0 ; i < 9 ; i++){
       Node* possibleNode = copy(n);
       possibleNode->sudo[x][y] = i + 1;
       pushBack(adjacentNodes, possibleNode);
     }
     
+    // Se retorna la lista.
     return adjacentNodes;
 }
 
